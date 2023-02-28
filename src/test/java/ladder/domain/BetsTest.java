@@ -14,18 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 class BetsTest {
 
     private List<String> bets;
-    private int countOfParticipants;
 
     @BeforeEach
     void setup() {
         bets = Arrays.asList("A", "B", "C", "D", "E");
-        countOfParticipants = bets.size();
     }
 
     @DisplayName("참여자 수와 내기 목록의 수가 같아야 한다.")
     @Test
     void createBetsFailTestByDifferentCountOfNamesAndBet() {
-        countOfParticipants = 3;
+        int countOfParticipants = 3;
 
         assertThatThrownBy(() -> new Bets(bets, countOfParticipants))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -35,6 +33,7 @@ class BetsTest {
     @DisplayName("참여자 수와 내기 목록의 수가 같아야 한다.")
     @Test
     void createBetsSuccessTestByCountOfNamesAndBet() {
+        int countOfParticipants = bets.size();
         assertDoesNotThrow(() -> new Bets(bets, countOfParticipants));
     }
 
