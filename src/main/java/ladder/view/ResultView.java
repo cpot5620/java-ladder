@@ -64,8 +64,8 @@ public class ResultView {
         System.out.println(resultMessage);
     }
 
-    public void printGameResult(Result result, Name name) {
-        String resultMessage = RESULT_MESSAGE + NEW_LINE + result.getBetByName(name).getBet();
+    public void printGameResult(Bet bet) {
+        String resultMessage = RESULT_MESSAGE + NEW_LINE + bet.getBet();
 
         System.out.println(resultMessage);
     }

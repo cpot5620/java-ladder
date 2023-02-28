@@ -91,7 +91,7 @@ public class LadderController {
             return;
         }
         try {
-            resultView.printGameResult(result, new Name(name));
+            resultView.printGameResult(result.getBetByName(new Name(name)));
         } catch (IllegalArgumentException e) {
             resultView.printErrorMessage(e.getMessage());
         }
