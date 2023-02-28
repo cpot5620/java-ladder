@@ -14,6 +14,7 @@ public class ResultView {
     private static final String BET_FORMAT = "%-5s";
     private static final String RESULT_FORMAT = "%s : %s";
     private static final String RESULT_MESSAGE = "실행결과";
+    private static final String NEW_LINE = System.lineSeparator();
 
 
     public void printErrorMessage(String message) {
@@ -23,7 +24,7 @@ public class ResultView {
     public void printForm(Names names, Ladder ladder, Bets bets) {
         int lengthOfFirstName = names.lengthOfFirstName();
 
-        System.out.println(RESULT_MESSAGE + System.lineSeparator());
+        System.out.println(RESULT_MESSAGE + NEW_LINE);
         printNames(names);
         printLadder(ladder, lengthOfFirstName);
         printBets(bets, lengthOfFirstName);
@@ -64,7 +65,7 @@ public class ResultView {
     }
 
     public void printGameResult(Result result, Name name) {
-        String resultMessage = RESULT_MESSAGE + System.lineSeparator() + result.getBetByName(name).getBet();
+        String resultMessage = RESULT_MESSAGE + NEW_LINE + result.getBetByName(name).getBet();
 
         System.out.println(resultMessage);
     }
@@ -77,7 +78,7 @@ public class ResultView {
         String resultMessage = "";
         for (int i = 0; i < names.size(); i++) {
             resultMessage += String.format(RESULT_FORMAT, names.get(i), bets.get(i).getBet());
-            resultMessage += System.lineSeparator();
+            resultMessage += NEW_LINE;
         }
 
         System.out.print(resultMessage);
